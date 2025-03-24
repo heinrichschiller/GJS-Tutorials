@@ -5,17 +5,19 @@ const Gtk = imports.gi.Gtk;
 const app = new Gtk.Application({ application_id: 'org.gtk.exampleapp'});
 
 app.connect('activate', () => {
-    const box = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL });
+    const box = new Gtk.Box({ 
+        orientation: Gtk.Orientation.VERTICAL,
+        marginTop: 36
+    });
 
     const label = new Gtk.Label({ label: 'Gtk4.0-Box' });
-
-    box.append(label);
 
     const button = new Gtk.Button({ label: 'Click Me!' });
     button.connect('clicked', () => {
         log('This button was clicked.')
     })
 
+    box.append(label);
     box.append(button);
 
     const window = new Gtk.ApplicationWindow({
